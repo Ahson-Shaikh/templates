@@ -5,6 +5,8 @@ changeLog:
   - date: 2025-05-02
     description: Initial release
 links:
+  - label: Website
+    url: https://pyload.net/
   - label: GitHub
     url: https://github.com/pyload/pyload
   - label: Documentation
