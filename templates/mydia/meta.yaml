@@ -13,14 +13,37 @@ description:
   Perfect for cord-cutters and media enthusiasts who want complete control over
   their digital media library.
 
-instructions: null
+instructions:
+  Mydia listens on port 4000. This template mounts `/config` for application
+  data and the database and `/media` for your libraries. `SECRET_KEY_BASE` and
+  `GUARDIAN_SECRET_KEY` are generated automatically and should be kept if you
+  recreate the service. Set your timezone in the form and attach a domain in
+  Easypanel so `PHX_HOST=$(PRIMARY_DOMAIN)` matches the URL people use to reach
+  the app. The first time you open the site you create the initial admin
+  account. There is no default login shipped with the image. Store media under
+  `/media` using the `library/movies` and `library/tv` paths, or change
+  `MOVIES_PATH` and `TV_PATH` in a customized template if you prefer different
+  folders. Add download clients and indexers as described in the upstream
+  documentation. For setup details visit
+  https://docs.mydia.dev/latest/getting-started/quick-start/ and
+  https://docs.mydia.dev/latest/getting-started/first-steps/.
 
 changeLog:
   - date: 2025-11-13
     description: Template Release v0.4.6
+  - date: 2026-03-24
+    description:
+      Added logo.png, setup instructions, and documentation. Version bumped to
+      0.9.0
 
 links:
-  - label: Github
+  - label: Website
+    url: https://docs.mydia.dev/latest/
+  - label: Documentation
+    url: https://docs.mydia.dev/latest/getting-started/quick-start/
+  - label: Container registry
+    url: https://github.com/getmydia/mydia/pkgs/container/mydia
+  - label: GitHub
     url: https://github.com/getmydia/mydia
 
 contributors:
@@ -40,7 +63,7 @@ schema:
     appServiceImage:
       type: string
       title: App Service Image
-      default: ghcr.io/getmydia/mydia:0.4.6
+      default: ghcr.io/getmydia/mydia:0.9.0
     timezone:
       type: string
       title: Timezone

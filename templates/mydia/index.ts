@@ -24,7 +24,7 @@ export function generate(input: Input): Output {
       ].join("\n"),
       source: {
         type: "image",
-        image: input.appServiceImage,
+        image: input.appServiceImage ?? "ghcr.io/getmydia/mydia:0.5.3",
       },
       domains: [
         {
