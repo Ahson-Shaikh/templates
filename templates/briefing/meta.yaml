@@ -1,0 +1,82 @@
+name: Briefing
+description:
+  Briefing (brie.fi/ng) is an open-source, privacy-focused video group chat
+  application built entirely on WebRTC. It works directly in any modern browser
+  with no installation or account required. The single Docker image bundles a
+  Vue 3 frontend, a Zerva-based WebSocket signaling server, and a built-in STUN
+  server. Features include multi-person video calls, screen sharing, text chat,
+  and shareable room links. By default it uses a public STUN/TURN relay; you can
+  optionally point it at your own coturn instance via environment variables.
+instructions:
+  After deployment open the app URL in your browser. A unique room link is
+  generated automatically — share it with participants to start a call. HTTPS is
+  required for camera and microphone access in production (Easypanel handles
+  this automatically). No account or registration is needed.
+changeLog:
+  - date: 2026-06-30
+    description: first release
+links:
+  - label: Website
+    url: https://brie.fi/ng
+  - label: GitHub
+    url: https://github.com/holtwick/briefing/tree/master
+  - label: Documentation
+    url: https://github.com/holtwick/briefing/blob/master/docs/README.md
+contributors:
+  - name: Ahson Shaikh
+    url: https://github.com/Ahson-Shaikh
+schema:
+  type: object
+  required:
+    - appServiceName
+    - appServiceImage
+  properties:
+    appServiceName:
+      type: string
+      title: App Service Name
+      default: briefing
+    appServiceImage:
+      type: string
+      title: App Service Image
+      default: holtwick/briefing:3.1.10
+benefits:
+  - title: No Account Required
+    description:
+      Users join calls directly from a browser link — no sign-up, no login, no
+      app install. Ideal for quick ad-hoc meetings and privacy-conscious teams.
+  - title: Fully Self-Hosted
+    description:
+      Host the signaling server and STUN endpoint on your own infrastructure so
+      call metadata never touches third-party servers.
+  - title: WebRTC Peer-to-Peer
+    description:
+      Audio and video travel directly between participants after signaling —
+      your server is not in the media path, keeping latency low and bandwidth
+      usage minimal.
+features:
+  - title: Group Video Calls
+    description:
+      Multi-participant video conferencing with a clean grid layout and
+      individual controls for camera, microphone, and hang-up.
+  - title: Screen Sharing
+    description:
+      Share your entire screen or a specific window with other participants
+      without leaving the browser.
+  - title: Text Chat
+    description:
+      In-call text chat lets participants share links or messages alongside the
+      video stream.
+  - title: Shareable Room Links
+    description:
+      Every room gets a unique URL. Send the link to invite anyone — no
+      registration or app download on their end.
+  - title: Built-in STUN Server
+    description:
+      Ships with its own STUN server so basic NAT traversal works
+      out-of-the-box. Optionally configure a self-hosted coturn instance for
+      corporate firewalls.
+tags:
+  - Video
+  - Communication
+  - WebRTC
+  - Self-Hosted
