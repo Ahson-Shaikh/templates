@@ -1,0 +1,129 @@
+name: OmniPoly
+description:
+  OmniPoly is a single web interface that brings together text translation,
+  grammar and style checking, and AI-powered writing insights, so you don't need
+  separate tabs open for LibreTranslate, LanguageTool, and Ollama. It is a pure
+  frontend/proxy with no database of its own — point it at your own instances of
+  those backends and it hides any tab whose backend isn't configured.
+instructions:
+  Open the app URL and sign in with the HTTP Basic Auth prompt using username
+  admin and the auto-generated password shown as this service's first basic auth
+  entry in Easypanel. Fill in the URL fields above for whichever backends you
+  already run (LibreTranslate, LanguageTool, Ollama); any left blank simply
+  won't appear as a tab.
+changeLog:
+  - date: 2026-07-17
+    description: first release
+links:
+  - label: GitHub
+    url: https://github.com/kWeglinski/OmniPoly
+contributors:
+  - name: Ahson Shaikh
+    url: https://github.com/Ahson-Shaikh
+schema:
+  type: object
+  required:
+    - appServiceName
+    - appServiceImage
+    - theme
+    - defaultTab
+    - defaultTargetLanguage
+  properties:
+    appServiceName:
+      type: string
+      title: App Service Name
+      default: omnipoly
+    appServiceImage:
+      type: string
+      title: App Service Image
+      default: kweg/omnipoly:0.16.0
+    libreTranslateUrl:
+      type: string
+      title: LibreTranslate URL
+      description: Optional. URL of your own LibreTranslate instance.
+    libreTranslateApiKey:
+      type: string
+      title: LibreTranslate API Key
+      description:
+        Optional. Only needed if your LibreTranslate instance requires one.
+    languageToolUrl:
+      type: string
+      title: LanguageTool URL
+      description: Optional. URL of your own LanguageTool instance.
+    ollamaUrl:
+      type: string
+      title: Ollama URL
+      description: Optional. URL of your own Ollama instance.
+    ollamaModel:
+      type: string
+      title: Ollama Model
+      description:
+        Optional. Model name to use for the Ollama-powered insights tab.
+    theme:
+      type: string
+      title: Theme
+      default: dark
+      oneOf:
+        - enum:
+            - dark
+          title: Dark
+        - enum:
+            - light
+          title: Light
+        - enum:
+            - pole
+          title: Pole
+    defaultTab:
+      type: string
+      title: Default Tab
+      default: translate
+      oneOf:
+        - enum:
+            - translate
+          title: Translate
+        - enum:
+            - language-check
+          title: Language Check
+        - enum:
+            - harper
+          title: Harper
+    defaultTargetLanguage:
+      type: string
+      title: Default Target Language
+      description: ISO 639 language code, e.g. es, fr, de.
+      default: es
+benefits:
+  - title: One Interface, Three Tools
+    description:
+      Translation, grammar checking, and AI writing insights share one UI
+      instead of three separate bookmarks and browser tabs.
+  - title: Bring Your Own Backends
+    description:
+      OmniPoly holds no data itself — it's a thin layer over LibreTranslate,
+      LanguageTool, and Ollama instances you already control.
+  - title: Tabs Adapt to What You've Configured
+    description:
+      Any backend URL left blank simply disappears from the interface, instead
+      of showing a broken tab.
+features:
+  - title: Text Translation
+    description:
+      Translate text between languages via a connected LibreTranslate instance,
+      with a configurable default target language.
+  - title: Grammar and Style Checking
+    description:
+      Check grammar and style via LanguageTool, or the built-in Harper checker
+      as a lighter-weight alternative.
+  - title: AI Writing Insights
+    description:
+      Get AI-powered feedback on text via a connected Ollama instance and model
+      of your choice.
+  - title: Theming
+    description:
+      Switch between dark, light, and pole color themes to match your
+      preference.
+tags:
+  - Productivity
+  - Translation
+  - Writing
+  - Self-Hosted
