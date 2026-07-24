@@ -1,0 +1,68 @@
+name: Movary
+description:
+  Movary is a free and open source web application to track, rate and explore
+  your movie watch history. It offers detailed statistics on your watching
+  habits, third-party integrations for importing and exporting history from
+  platforms like Trakt, Letterboxd, or Netflix, automated play tracking for
+  Plex, Jellyfin, Emby or Kodi, and cross-posting to Mastodon. Movary can be
+  installed as a PWA and supports multiple users on a single instance.
+instructions: >-
+  Movary needs a free API key from themoviedb.org to fetch movie metadata and
+  posters. Create an account on The Movie Database, generate an API key under
+  your account settings, and paste it in below. This template uses Movary's
+  built-in SQLite database, which the docs recommend for most self-hosted
+  setups.
+changeLog:
+  - date: 2026-07-24
+    description: first release
+links:
+  - label: Website
+    url: https://movary.org
+  - label: GitHub
+    url: https://github.com/leepeuker/movary
+  - label: Documentation
+    url: https://docs.movary.org
+contributors:
+  - name: Ahson Shaikh
+    url: https://github.com/Ahson-Shaikh
+schema:
+  type: object
+  required:
+    - appServiceName
+    - appServiceImage
+    - tmdbApiKey
+  properties:
+    appServiceName:
+      type: string
+      title: App Service Name
+      default: movary
+    appServiceImage:
+      type: string
+      title: App Service Image
+      default: leepeuker/movary:0.72.0
+    tmdbApiKey:
+      type: string
+      title: TMDB API Key
+      description:
+        Get a free API key from your account settings on themoviedb.org
+benefits:
+  - title: Detailed Statistics
+    description: Explore your watch history by actor, director, genre and year
+  - title: Third-Party Imports
+    description: Import your history from Trakt, Letterboxd, Netflix and more
+  - title: Self-Hosted
+    description: Own your watch history and metadata on your own storage
+features:
+  - title: Automated Scrobbling
+    description: Automatically track new plays from Plex, Jellyfin, Emby or Kodi
+  - title: Multi-User Support
+    description: Host Movary for yourself and others with separate histories
+  - title: Fediverse Cross-Posting
+    description: Share activity to Mastodon as you watch
+  - title: Installable PWA
+    description: Install Movary as an app on your phone's home screen
+tags:
+  - Movies
+  - Media
+  - Tracking
+  - Self-Hosted
